@@ -1,5 +1,6 @@
 // the ~ allows you to reference things in node_modules
-@import "~bootstrap/scss/bootstrap";
+//@import "~bootstrap/scss/bootstrap";
+@import 'bootstrap.min.scss';
 
 :root {
     --bg-header: #2FBBF9;
@@ -8,6 +9,7 @@
 body {
     color: #2D2D2D;
     padding: 10px;
+    letter-spacing: 1px;
 }
 
 header {
@@ -15,6 +17,12 @@ header {
     border-radius: 10px;
 }
 
+h1 {
+    margin-top: 15px;
+    font-family: 'Carter One', cursive;
+}
+
 a {
     color:#E10087;
+    text-decoration: none;
 } 

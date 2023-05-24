@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+    {% if  categories %}
+        <h1>Liste des catégories</h1>
+        <hr>
+        {% for category in categories %}
+            <div>
+                <h2><a href="{{ path("category_show", { categoryName: category.name }) }}">{{ category.name }}</a></h2>
+            </div><br><br>
+        {% else %}
+            Il n'y a actuellement aucune catégorie
+        {% endfor %}
+    {% endif %}
+{% endblock %}
