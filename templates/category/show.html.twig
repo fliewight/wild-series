@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégorie : {{ category.name }} - Wild Séries{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Liste des séries de la catégorie : {{ category.name }}</h1>
+        <div class="row">
+            <div class="col-md-12">
+            {% if programs is empty %}
+                <hr>
+                <p>Aucune série n'a été trouvée dans cette catégorie</p>
+            {% else %}
+                {% for program in programs %}
+                    <div>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ program.id }} - {{ program.title }}</h2>
+                                <hr>
+                                <p class="card-text">{{ program.synopsis }}</p>
+                                <a href="{{ path("program_show", { id: program.id }) }}" class="btn btn-primary">Voir la fiche</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <a href="{{ path('category_index') }}" class="btn btn-secondary">Retour à la liste des catégories</a>
+    </div>
+{% endblock %}
