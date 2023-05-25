@@ -14,7 +14,10 @@ body {
 
 header {
     background-color: var(--bg-header);
-    border-radius: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 h1 {

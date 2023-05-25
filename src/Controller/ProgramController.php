@@ -29,7 +29,7 @@ Class ProgramController extends AbstractController
         // OU plus simple
         //$program = $programRepository->findOneById($id);
         // Si 1 seul argument
-        $program = $programRepository->find($id);
+        $program = $programRepository->find(['id' => $id]);
 
         return $this->render('program/show.html.twig', [
             'program' => $program,
