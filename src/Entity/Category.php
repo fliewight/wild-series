@@ -10,6 +10,14 @@ use Doctrine\Common\Collections\Collection;
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
     /*----------------------------------------------------------------
         Relation bidirectionnelle :
         Dans l'annotation ci-dessus, on retrouve comme valeur de "targetEntity", 
@@ -24,14 +32,6 @@ class Category
     {
         $this->programs = new ArrayCollection();
     }
-
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
 
     public function getId(): ?int
     {

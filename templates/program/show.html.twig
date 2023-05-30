@@ -3,15 +3,25 @@
 {% block title %}Série : {{ program.title }} - Wild Séries{% endblock %}
 
 {% block body %}
-    <div class="media">
-        {% if program.poster %}<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">{% endif %}
-        <div class="media-body">
-            <h1>{{ program.title }}</h1>
-            <hr>
-            <p><b>Catégorie</b> : {{ program.category.name }}</p>
-            <p><b>Synopsis</b> :<br>{{ program.synopsis }}</p>
+    <div class="container">
+        <div class="media">
+            {% if program.poster %}<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }}">{% endif %}
+            <div class="media-body">
+                <h1>{{ program.title }}</h1>
+                <hr>
+                <p><b>Catégorie</b> : {{ program.category.name }}</p>
+                <p><b>Synopsis</b> :<br>{{ program.synopsis }}</p>
+                <hr>
+                <p>Liste des saisons :</p>
+                <ul>
+                    {% for season in program.seasons %}
+                        <li><a href="{{ path('program_season_show', { "programId": program.id, "seasonId": season.id }) }}">Saison {{ season.number }}</a></li>
+                        {#<li><a href="#">Saison {{ season.number }}</a></li>#}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
+        <hr>
+        <a href="{{ path('program_index') }}" class="btn btn-secondary">Retour à la liste des séries</a>
     </div>
-    <hr>
-    <a href="{{ path('program_index') }}" class="btn btn-secondary">Retour à la liste des séries</a>
 {% endblock %}
