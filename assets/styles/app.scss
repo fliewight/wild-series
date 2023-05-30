@@ -4,7 +4,12 @@
 
 :root {
     --bg-header: #2FBBF9;
-  }
+}
+
+::selection {
+    background-color: var(--bg-header);
+    color: #fff;
+}
 
 body {
     color: #2D2D2D;
