@@ -5,7 +5,6 @@
     <title>{% block title %}Welcome to Wild Séries!{% endblock %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="icon" type="image/png" href="https://wilders.co/medias/editor/oneshot-images/196937687561a7ad234e89a.png" />
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
     {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
@@ -14,6 +13,11 @@
     <header>
         {% include ('_navbar.html.twig') %}
     </header>
+
     {% block body %}{% endblock %}
+
+    <footer class="bg-dark text-center text-white mt-4 w-100">
+        {% include ('_footer.html.twig') %}
+    </footer>
 </body>
 </html>

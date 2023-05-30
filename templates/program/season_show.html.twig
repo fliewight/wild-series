@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container">
-        <h1>Série {{ program.title }} - Saison {{ season.number }}</h1>
+        <h1>Série : {{ program.title }} (Saison {{ season.number }})</h1>
         <hr>
         {% for episode in season.episodes %}
             <p>Liste des épisodes :
