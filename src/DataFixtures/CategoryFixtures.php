@@ -10,12 +10,12 @@ class CategoryFixtures extends Fixture
 {
     public const CATEGORIES = [
         'Action',
-        'Comédie',
+        'Aventure',
+        'Animation',
+        'Fantastique',
         'Horreur',
         'Drame',
-        'Suspense',
     ];
-    
     public function load(ObjectManager $manager)
     {
         foreach (self::CATEGORIES as $categoryName) {

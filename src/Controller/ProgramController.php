@@ -68,33 +68,4 @@ Class ProgramController extends AbstractController
             'season' => $season,
         ]);
     }
-
-    // #[Route(
-    //     '/{programId}/seasons/{seasonId}',
-    //     name: 'season_show',
-    //     methods: ['GET'],
-    //     requirements: ['programId' => '\d+', 'seasonId' => '\d+'],
-    // )]
-    // public function showEpisode(int $programId, ProgramRepository $programRepository, int $seasonId, SeasonRepository $seasonRepository):Response
-    // {
-    //     $program = $programRepository->findOneBy(['id' => $programId]);
-    //     $season = $seasonRepository->find($seasonId);
-
-    //     dump($program);
-    //     dd($season);
-
-    //     if (!$program) {
-    //         throw $this->createNotFoundException("La catégorie demandée n'existe pas");
-    //     }
-
-    //     if (!$season) {
-    //         throw $this->createNotFoundException("La saison demandée n'existe pas");
-    //     }
-
-    //     return $this->render('program/season_show.html.twig', [
-    //         'program' => $program,
-    //         'season' => $season,
-    //         'episode' => $episode,
-    //     ]);
-    // }
 }
