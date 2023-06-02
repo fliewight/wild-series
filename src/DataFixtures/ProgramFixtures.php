@@ -9,35 +9,50 @@ use Doctrine\Persistence\ObjectManager;
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
+    /*public static int $numberOfProgram = 1;*/
     public function load(ObjectManager $manager)
     {
-        $program1 = new Program();
-        $program1->setTitle('Chucky');
-        $program1->setSynopsis('Lorsqu\'une vieille poupée Chucky fait son apparition dans un vide-greniers de quartier, une paisible petite ville américaine se retrouve plongée en plein chaos, et une série de terribles meurtres commence à dévoiler les secrets des habitants.');
-        $program1->setCategory($this->getReference('category_Horreur'));
-        $this->addReference('program_Chucky', $program1);
-        $manager->persist($program1);
+        $program = new Program();
+        $program->setTitle('Walking Dead');
+        $program->setCategory($this->getReference('category_Horreur'));
+        $program->setSynopsis('Des zombies envahissent la terre');
+        $this->addReference('program_0', $program);
+        $manager->persist($program);
 
-        $program2 = new Program();
-        $program2->setTitle('Notre belle famille');
-        $program2->setSynopsis("Frank Lambert et Carol Foster se marient sur un coup de tête, alors qu'ils sont déjà parents de trois enfants chacun. Le problème est que ces deux familles sont très différentes, presque opposées, et la cohabitation ne va pas être facile !");
-        $program2->setCategory($this->getReference('category_Comédie'));
-        $this->addReference('program_NotreBelleFamille', $program2);
-        $manager->persist($program2);
+        $program = new Program();
+        $program->setTitle('Vikings');
+        $program->setCategory($this->getReference('category_Action'));
+        $program->setSynopsis("Un chef viking Ragnar Lothbrok devient un symbole de bravoure, de conquête et de luttes intestines au sein de l'âge d'or des Vikings.");
+        $this->addReference('program_1', $program);
+        $manager->persist($program);
 
-        $program3 = new Program();
-        $program3->setTitle('Narcos');
-        $program3->setSynopsis("Loin d’un simple biopic de Pablo Escobar, Narcos retrace la lutte acharnée des États-Unis et de la Colombie contre le cartel de la drogue de Medellín, l’organisation la plus lucrative et impitoyable de l’histoire criminelle moderne. En multipliant les points de vue — policier, politique, judiciaire et personnel — la série dépeint l’essor du trafic de cocaïne et le bras de fer sanglant engagé avec les narcotrafiquants qui contrôlent le marché avec violence et ingéniosité.");
-        $program3->setCategory($this->getReference('category_Suspense'));
-        $this->addReference('program_Narcos', $program3);
-        $manager->persist($program3);
+        $program = new Program();
+        $program->setTitle('Dragon Ball Z');
+        $program->setCategory($this->getReference('category_Animation'));
+        $program->setSynopsis("Dragon Ball Z suit les aventures de Goku, un puissant guerrier extraterrestre, et de ses alliés alors qu'ils combattent des ennemis redoutables, repoussent les limites de leurs pouvoirs et protègent la Terre contre des menaces intergalactiques.");
+        $this->addReference('program_2', $program);
+        $manager->persist($program);
 
-        $program4 = new Program();
-        $program4->setTitle('Walking Dead');
-        $program4->setSynopsis("Après une apocalypse ayant transformé la quasi-totalité de la population en zombies, un groupe d'hommes et de femmes mené par l'officier Rick Grimes tente de survivre... Ensemble, ils vont devoir tant bien que mal faire face à ce nouveau monde devenu méconnaissable, à travers leur périple dans le Sud profond des États-Unis.");
-        $program4->setCategory($this->getReference('category_Horreur'));
-        $this->addReference('program_WalkingDead', $program4);
-        $manager->persist($program4);
+        $program = new Program();
+        $program->setTitle('Game of Thrones');
+        $program->setCategory($this->getReference('category_Fantastique'));
+        $program->setSynopsis("Dans un monde fantastique et brutal, les familles nobles s'affrontent pour le trône de fer, tandis que des forces surnaturelles menaçantes se réveillent, entraînant des intrigues politiques, des trahisons et des batailles épiques dans la lutte pour le pouvoir suprême.");
+        $this->addReference('program_3', $program);
+        $manager->persist($program);
+
+        $program = new Program();
+        $program->setTitle('Sweet Tooth');
+        $program->setCategory($this->getReference('category_Aventure'));
+        $program->setSynopsis("Dans un monde post-apocalyptique, un jeune garçon mi-humain mi-cerf se lance dans un voyage périlleux à travers des terres dévastées, rencontrant des alliés inattendus et affrontant des dangers impitoyables, dans l'espoir de découvrir l'origine de son existence et de trouver un refuge pour les hybrides comme lui.");
+        $this->addReference('program_4', $program);
+        $manager->persist($program);
+
+        $program = new Program();
+        $program->setTitle('En un battement');
+        $program->setCategory($this->getReference('category_Drame'));
+        $program->setSynopsis("Ca parle du trafic d'organes.");
+        $this->addReference('program_5', $program);
+        $manager->persist($program);
 
         $manager->flush();
     }
@@ -45,9 +60,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-          CategoryFixtures::class,
+            CategoryFixtures::class,
         ];
     }
-
-
 }
